@@ -1,0 +1,45 @@
+Option 2:
+
+Output:
+[*****-----] 50%
+[**********] 100%
+
+    for (int i = 0; i <= 200; i = i + 20) {
+        loading2(i, 200);
+        Thread.sleep(500);
+    }
+
+function(int remain, int total)
+  if (remain > total) {
+        throw new IllegalArgumentException();
+    }
+    int maxBareSize = 10; // 10unit for 100%
+    int remainProcent = ((100 * remain) / total) / maxBareSize;
+    char defaultChar = '-';
+    String icon = "*";
+    String bare = new String(new char[maxBareSize]).replace('\0', defaultChar) + "]";
+    StringBuilder bareDone = new StringBuilder();
+    bareDone.append("[");
+    for (int i = 0; i < remainProcent; i++) {
+        bareDone.append(icon);
+    }
+    String bareRemain = bare.substring(remainProcent, bare.length());
+    System.out.print("\r" + bareDone + bareRemain + " " + remainProcent * 10 + "%");
+    if (remain == total) {
+        System.out.print("\n");
+    }
+
+Option 1:
+
+Output:
+\ 5
+- 35
+/ 55
+\ 99
+
+    String anim= "|/-\\";
+        for (int x =0 ; x < 100 ; x++) {
+            String data = "\r" + anim.charAt(x % anim.length()) + " " + x;
+            System.out.write(data.getBytes());
+            Thread.sleep(100);
+        }
