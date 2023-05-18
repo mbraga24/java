@@ -1,13 +1,13 @@
-package com.havefunwith.combinedExercices.miniProjectSandbox.one;
+package com.havefunwith.combinedExercices.miniProjectSandbox.playground;
 
-import com.havefunwith.combinedExercices.miniProjectSandbox.one.automobile.CarService;
-import com.havefunwith.combinedExercices.miniProjectSandbox.one.enums.*;
-import com.havefunwith.combinedExercices.miniProjectSandbox.one.address.Address;
-import com.havefunwith.combinedExercices.miniProjectSandbox.one.automobile.Car;
-import com.havefunwith.combinedExercices.miniProjectSandbox.one.garage.GarageService;
-import com.havefunwith.combinedExercices.miniProjectSandbox.one.person.Person;
-import com.havefunwith.combinedExercices.miniProjectSandbox.one.person.PersonService;
-import com.havefunwith.combinedExercices.miniProjectSandbox.one.pet.Pet;
+import com.havefunwith.combinedExercices.miniProjectSandbox.playground.automobile.CarService;
+import com.havefunwith.combinedExercices.miniProjectSandbox.playground.enums.*;
+import com.havefunwith.combinedExercices.miniProjectSandbox.playground.address.Address;
+import com.havefunwith.combinedExercices.miniProjectSandbox.playground.automobile.Car;
+import com.havefunwith.combinedExercices.miniProjectSandbox.playground.garage.GarageService;
+import com.havefunwith.combinedExercices.miniProjectSandbox.playground.person.Person;
+import com.havefunwith.combinedExercices.miniProjectSandbox.playground.person.PersonService;
+import com.havefunwith.combinedExercices.miniProjectSandbox.playground.pet.Pet;
 
 import java.math.BigDecimal;
 

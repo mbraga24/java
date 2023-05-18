@@ -1,6 +1,6 @@
-package com.havefunwith.combinedExercices.miniProjectSandbox.one.address;
+package com.havefunwith.combinedExercices.miniProjectSandbox.playground.address;
 
-import com.havefunwith.combinedExercices.miniProjectSandbox.one.enums.Country;
+import com.havefunwith.combinedExercices.miniProjectSandbox.playground.enums.Country;
 
 public class Address {
 

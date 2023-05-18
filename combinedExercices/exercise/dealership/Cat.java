@@ -1,4 +1,4 @@
-package com.havefunwith.combinedExercices.exercise.one;
+package com.havefunwith.combinedExercices.exercise.dealership;
 
 public class Cat {
 

@@ -1,6 +1,6 @@
-package com.havefunwith.combinedExercices.miniProjectSandbox.one.automobile;
+package com.havefunwith.combinedExercices.miniProjectSandbox.playground.automobile;
 
-import com.havefunwith.combinedExercices.miniProjectSandbox.one.enums.CarBrand;
+import com.havefunwith.combinedExercices.miniProjectSandbox.playground.enums.CarBrand;
 
 import java.math.BigDecimal;
 

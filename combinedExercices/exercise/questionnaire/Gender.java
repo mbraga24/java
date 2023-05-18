@@ -1,4 +1,4 @@
-package com.havefunwith.combinedExercices.exercise.two;
+package com.havefunwith.combinedExercices.exercise.questionnaire;
 
 public enum Gender {
     MALE,

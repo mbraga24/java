@@ -27,13 +27,19 @@ public class Car implements Vehicle {
     }
 
     @Override
-    public void getCurrentSpeed() {
-        System.out.println("Current speed : " + this.currentSpeed);
+    public int getCurrentSpeed() {
+        return this.currentSpeed;
     }
 
     @Override
     public String getName() {
         return NAME;
+    }
+
+    @Override
+    public double milesToKm() {
+        System.out.println("Custom MILES TO KM for cars");
+        return getCurrentSpeed() * 1.609;
     }
 
 

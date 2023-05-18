@@ -1,6 +1,6 @@
-package com.havefunwith.combinedExercices.miniProjectSandbox.one.pet;
+package com.havefunwith.combinedExercices.miniProjectSandbox.playground.pet;
 
-import com.havefunwith.combinedExercices.miniProjectSandbox.one.enums.PetType;
+import com.havefunwith.combinedExercices.miniProjectSandbox.playground.enums.PetType;
 
 public class Pet {
 

@@ -1,4 +1,4 @@
-package com.havefunwith.combinedExercices.miniProjectSandbox.one.constants;
+package com.havefunwith.combinedExercices.miniProjectSandbox.playground.constants;
 
 public class Constants {
 

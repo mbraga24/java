@@ -1,7 +1,7 @@
-package com.havefunwith.combinedExercices.miniProjectSandbox.one.garage;
+package com.havefunwith.combinedExercices.miniProjectSandbox.playground.garage;
 
-import com.havefunwith.combinedExercices.miniProjectSandbox.one.automobile.Car;
-import com.havefunwith.combinedExercices.miniProjectSandbox.one.person.Person;
+import com.havefunwith.combinedExercices.miniProjectSandbox.playground.automobile.Car;
+import com.havefunwith.combinedExercices.miniProjectSandbox.playground.person.Person;
 
 import java.util.Arrays;
 

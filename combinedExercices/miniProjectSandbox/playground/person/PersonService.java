@@ -1,4 +1,4 @@
-package com.havefunwith.combinedExercices.miniProjectSandbox.one.person;
+package com.havefunwith.combinedExercices.miniProjectSandbox.playground.person;
 
 import java.util.Objects;
 

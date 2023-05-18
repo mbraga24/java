@@ -1,8 +1,8 @@
-package com.havefunwith.combinedExercices.miniProjectSandbox.one.automobile;
+package com.havefunwith.combinedExercices.miniProjectSandbox.playground.automobile;
 
 import java.util.Objects;
 
-import static com.havefunwith.combinedExercices.miniProjectSandbox.one.constants.Constants.*;
+import static com.havefunwith.combinedExercices.miniProjectSandbox.playground.constants.Constants.*;
 
 public class CarService {
 

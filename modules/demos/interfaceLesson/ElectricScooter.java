@@ -27,8 +27,8 @@ public class ElectricScooter implements Vehicle {
     }
 
     @Override
-    public void getCurrentSpeed() {
-        System.out.println("Current speed : " + this.currentSpeed);
+    public int getCurrentSpeed() {
+        return this.currentSpeed;
     }
 
     @Override

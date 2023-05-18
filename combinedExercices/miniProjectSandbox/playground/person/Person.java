@@ -1,9 +1,9 @@
-package com.havefunwith.combinedExercices.miniProjectSandbox.one.person;
+package com.havefunwith.combinedExercices.miniProjectSandbox.playground.person;
 
-import com.havefunwith.combinedExercices.miniProjectSandbox.one.enums.Gender;
-import com.havefunwith.combinedExercices.miniProjectSandbox.one.address.Address;
-import com.havefunwith.combinedExercices.miniProjectSandbox.one.automobile.Car;
-import com.havefunwith.combinedExercices.miniProjectSandbox.one.pet.Pet;
+import com.havefunwith.combinedExercices.miniProjectSandbox.playground.enums.Gender;
+import com.havefunwith.combinedExercices.miniProjectSandbox.playground.address.Address;
+import com.havefunwith.combinedExercices.miniProjectSandbox.playground.automobile.Car;
+import com.havefunwith.combinedExercices.miniProjectSandbox.playground.pet.Pet;
 
 import java.util.Arrays;
 

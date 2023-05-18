@@ -1,4 +1,4 @@
-package com.havefunwith.combinedExercices.miniProjectSandbox.one.enums;
+package com.havefunwith.combinedExercices.miniProjectSandbox.playground.enums;
 
 public enum Gender {
     MALE,

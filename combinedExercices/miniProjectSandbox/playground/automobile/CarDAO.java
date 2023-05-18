@@ -1,4 +1,4 @@
-package com.havefunwith.combinedExercices.miniProjectSandbox.one.automobile;
+package com.havefunwith.combinedExercices.miniProjectSandbox.playground.automobile;
 
 import java.util.HashSet;
 import java.util.Objects;
