@@ -16,6 +16,14 @@ public class CarService {
         return carDao.getAllCars();
     }
 
+    public int returnNumberOfTotalCars() {
+        int numberOfCars = 0;
+        for (Car car : carDao.getAllCars()) {
+            if (car != null) numberOfCars++;
+        }
+        return numberOfCars;
+    }
+
     @Override
     public String toString() {
         return "CarService{" +
