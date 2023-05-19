@@ -5,6 +5,7 @@ import com.havefunwith.CLI.car.CarService;
 import com.havefunwith.CLI.enums.Brand;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 /**
  * Notes when done:
@@ -30,10 +31,9 @@ public class Main {
 
         carService.createCar(tesla);
 
-        /*
-        Cant see car object on console --- fix
-         */
-        System.out.println(carService.returnCars());
+        System.out.println(Arrays.toString(
+                            Arrays.copyOf(carService.returnCars(),
+                            carService.returnNumberOfTotalCars())));
 
 
     }
