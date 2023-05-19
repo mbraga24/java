@@ -17,11 +17,11 @@ public class CarService {
     }
 
     public int returnNumberOfTotalCars() {
-        int numberOfCars = 0;
+        int totalCars = 0;
         for (Car car : carDao.getAllCars()) {
-            if (car != null) numberOfCars++;
+            if (car != null) totalCars++;
         }
-        return numberOfCars;
+        return totalCars;
     }
 
     @Override
