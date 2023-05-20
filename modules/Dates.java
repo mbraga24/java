@@ -3,6 +3,7 @@ package com.havefunwith.modules;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 
 public class Dates {
 
@@ -15,7 +16,7 @@ public class Dates {
         */
         System.out.println(LocalDate.now());
         System.out.println("====");
-        System.out.println(LocalDateTime.now());
+        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd | HH:mm:ss a")));
         System.out.println();
         /*
             ==============
