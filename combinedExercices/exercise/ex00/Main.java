@@ -1,4 +1,4 @@
-package com.havefunwith.combinedExercices.exercise.dealership;
+package com.havefunwith.combinedExercices.exercise.ex00;
 
 import java.math.BigDecimal;
 

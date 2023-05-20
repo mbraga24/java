@@ -1,4 +1,4 @@
-package com.havefunwith.combinedExercices.exercise.questionnaire;
+package com.havefunwith.combinedExercices.exercise.ex01;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
