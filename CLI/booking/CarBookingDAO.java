@@ -1,9 +1,9 @@
 package com.havefunwith.CLI.booking;
 
-import com.havefunwith.CLI.car.Car;
-import com.havefunwith.CLI.user.User;
-
-public class CarBookingDAO {
+/**
+ * Default class only accessed within this package.
+ */
+class CarBookingDAO {
 
     private static CarBooking[] carBookings;
     private static int nextAvailableSlot = 0;

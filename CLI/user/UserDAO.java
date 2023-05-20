@@ -1,6 +1,9 @@
 package com.havefunwith.CLI.user;
 
-public class UserDAO {
+/**
+ * Default class only accessed within this package.
+ */
+class UserDAO {
 
     private static final int CAPACITY = 5;
     private static User[] users;
