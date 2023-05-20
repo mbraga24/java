@@ -42,11 +42,11 @@ public class Car {
         this.brand = brand;
     }
 
-    public Boolean getElectric() {
+    public Boolean getIsElectric() {
         return isElectric;
     }
 
-    public void setElectric(Boolean electric) {
+    public void setIsElectric(Boolean electric) {
         isElectric = electric;
     }
 
