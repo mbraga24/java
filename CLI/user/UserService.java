@@ -1,7 +1,5 @@
 package com.havefunwith.CLI.user;
 
-import com.havefunwith.CLI.car.CarDAO;
-
 public class UserService {
 
     private UserDAO userDao;
