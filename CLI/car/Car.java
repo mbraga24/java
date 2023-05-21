@@ -10,12 +10,22 @@ public class Car {
     private BigDecimal rentalPricePerDay;
     private Brand brand;
     private Boolean isElectric;
+    private Boolean isAvailable;
 
     public Car(String regNumber, BigDecimal rentalPricePerDay, Brand brand, Boolean isElectric) {
         this.regNumber = regNumber;
         this.rentalPricePerDay = rentalPricePerDay;
         this.brand = brand;
         this.isElectric = isElectric;
+        this.isAvailable = true;
+    }
+
+    public Boolean getAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(Boolean available) {
+        isAvailable = available;
     }
 
     public String getRegNumber() {
@@ -57,6 +67,7 @@ public class Car {
                 ", rentalPricePerDay=" + rentalPricePerDay +
                 ", brand=" + brand +
                 ", isElectric=" + isElectric +
+                ", isAvailable=" + isAvailable +
                 '}';
     }
 }

@@ -13,11 +13,19 @@ class CarDAO {
         cars = new Car[CAPACITY];
     }
 
+    /**
+     * Saves car.
+     * @param car to be saved.
+     */
     public void saveCar(Car car) {
         cars[nextAvailableSlot] = car;
         nextAvailableSlot++;
     }
 
+    /**
+     * Retrieve all cars.
+     * @return array of cars.
+     */
     public Car[] getAllCars() {
         return cars;
     }
