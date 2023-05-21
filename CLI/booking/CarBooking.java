@@ -27,6 +27,8 @@ public class CarBooking {
         this.bookingTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy/mm/dd | HH:mm:ss a"));
     }
 
+    public CarBooking() {}
+
     public String getBookingId() {
         return bookingId;
     }
