@@ -13,14 +13,16 @@ class CarBookingDAO {
         carBookings = new CarBooking[CAPACITY];
     }
 
+    /**
+     * Saves car.
+     * @param carBooking to be saved.
+     */
     public void saveCarBooking(CarBooking carBooking) {
 //        if (carBookings.length >= 0) {
             carBookings[nextAvailableSlot] = carBooking;
             nextAvailableSlot++;
 //        }
     }
-
-    // GETTERS AND SETTER
 
     public static CarBooking[] getAllCarBookings() {
         return carBookings;
