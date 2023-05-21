@@ -16,14 +16,15 @@ import java.util.Arrays;
  *
  * 1) Fix BigDecimal: 89.00 instead of 89.0
  * 2) Add Default Access Modifier where is needed
- * 3) Change returnUser and returnCarBookings to return the proper array from their service classes
+ * 3) Change returnUser to return the proper array from their service classes
  */
 public class Main {
 
     public static void main(String[] args) {
 
         // CARS
-        Car tesla = new Car("1234", BigDecimal.valueOf(89.00), Brand.TESLA, true);
+        Car teslaO = new Car("1234", BigDecimal.valueOf(89.00), Brand.TESLA, true);
+        Car teslaT = new Car("4444", BigDecimal.valueOf(109.00), Brand.TESLA, true);
         Car audi = new Car("5678", BigDecimal.valueOf(50.00), Brand.AUDI, false);
         Car mercedes = new Car("91011", BigDecimal.valueOf(77.00), Brand.MERCEDES, false);
 
@@ -33,7 +34,7 @@ public class Main {
         // USERS END
 
         // CAR BOOKING
-        CarBooking tomBooking = new CarBooking(tesla, tom);
+        CarBooking tomBooking = new CarBooking(teslaO, tom);
         CarBooking bettyBooking = new CarBooking(audi, betty);
         // CAR BOOKING END
 
@@ -44,7 +45,10 @@ public class Main {
         // CLASS INSTANCES END
 
         // CREATE CARS
-        carService.createCar(tesla);
+        carService.createCar(teslaO);
+        carService.createCar(teslaT);
+        carService.createCar(audi);
+        carService.createCar(mercedes);
         // CREATE CARS END
 
         // CREATE USERS
@@ -61,7 +65,9 @@ public class Main {
         System.out.println("\n");
         System.out.println("============== Cars ==============");
         System.out.println(Arrays.toString(carService.returnCars()));
-        System.out.print("ELECTRIC CARS: " + Arrays.toString(carService.returnElectricCars()));
+        System.out.println("ELECTRIC CARS: " + Arrays.toString(carService.returnElectricCars()));
+        System.out.println("CARS BY REGISTRATION NUMBER -- (5678): " + carService.returnCarByRegNumber("5678"));
+        System.out.println("CARS AVAILABLE BY BRAND -- (TESLA): " + carService.returnAvailableCarsByBrand(Brand.TESLA));
 
         System.out.println("\n");
         System.out.println("============== Users ==============");
@@ -74,6 +80,8 @@ public class Main {
         System.out.println(Arrays.toString(
                             Arrays.copyOf(carBookingService.returnCarBookings(),
                                         carBookingService.returnNumberOfTotalCarBookings())));
+        System.out.println("CAR BOOKING BY USER ID -- (456): " + carBookingService.returnCarBookingByUserId("456"));
+        System.out.println("CAR BOOKING BY BOOKING ID -- (1001): " + carBookingService.returnCarBookingByBookingId("1001"));
     }
 
 }
