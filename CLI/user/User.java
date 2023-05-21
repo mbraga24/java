@@ -12,6 +12,8 @@ public class User {
         this.age = age;
     }
 
+    public User() {}
+
     public String getId() {
         return id;
     }

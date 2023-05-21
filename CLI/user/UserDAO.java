@@ -13,11 +13,19 @@ class UserDAO {
         users = new User[CAPACITY];
     }
 
+    /**
+     * Saves user.
+     * @param user to be saved.
+     */
     public void saveUser(User user) {
         users[nextAvailable] = user;
         nextAvailable++;
     }
 
+    /**
+     * Retrieve all users.
+     * @return array of users.
+     */
     public User[] getAllUsers() {
         return users;
     }
