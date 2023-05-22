@@ -24,7 +24,8 @@ public class Main {
 
         // CARS
         Car teslaO = new Car("1234", BigDecimal.valueOf(89.00), Brand.TESLA, true);
-        Car teslaT = new Car("4444", BigDecimal.valueOf(109.00), Brand.TESLA, true);
+        Car teslaTw = new Car("4444", BigDecimal.valueOf(109.00), Brand.TESLA, true);
+        Car teslaTh = new Car("5555", BigDecimal.valueOf(99.00), Brand.TESLA, true);
         Car audi = new Car("5678", BigDecimal.valueOf(50.00), Brand.AUDI, false);
         Car mercedes = new Car("91011", BigDecimal.valueOf(77.00), Brand.MERCEDES, false);
 
@@ -46,7 +47,8 @@ public class Main {
 
         // CREATE CARS
         carService.createCar(teslaO);
-        carService.createCar(teslaT);
+        carService.createCar(teslaTw);
+        carService.createCar(teslaTh);
         carService.createCar(audi);
         carService.createCar(mercedes);
         // CREATE CARS END
@@ -67,7 +69,7 @@ public class Main {
         System.out.println(Arrays.toString(carService.returnCars()));
         System.out.println("ELECTRIC CARS: " + Arrays.toString(carService.returnElectricCars()));
         System.out.println("CARS BY REGISTRATION NUMBER -- (5678): " + carService.returnCarByRegNumber("5678"));
-        System.out.println("CARS AVAILABLE BY BRAND -- (TESLA): " + carService.returnAvailableCarsByBrand(Brand.TESLA));
+        System.out.println("CARS AVAILABLE BY BRAND -- (TESLA): " + Arrays.toString(carService.returnAvailableCarsByBrand(Brand.TESLA)));
 
         System.out.println("\n");
         System.out.println("============== Users ==============");

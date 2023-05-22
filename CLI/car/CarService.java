@@ -71,13 +71,30 @@ public class CarService {
         return null;
     }
 
-    public Car returnAvailableCarsByBrand(Enum brand) {
-        for (Car car : carDao.getAllCars()) {
-            if (car.getBrand().equals(brand) && car.getAvailable() == true) {
-                return car;
+    /**
+     * Return all available cars.
+     * @param brand to search cars.
+     * @return Cars
+     */
+    public Car[] returnAvailableCarsByBrand(Enum brand) {
+        int countCars = countCarsByBrand(brand);
+        Car[] carsByBrand = new Car[countCars];
+        int index = 0;
+        for (int i = 0; i < countCars; i++) {
+            if (carDao.getAllCars()[i].getBrand().equals(brand) && carDao.getAllCars()[i].getAvailable() == true) {
+                carsByBrand[index] = carDao.getAllCars()[i];
+                index++;
             }
         }
-        return null;
+        return Arrays.copyOf(carsByBrand, index);
+    }
+
+    private int countCarsByBrand(Enum brand) {
+        int countCars = 0;
+        for (Car car : carDao.getAllCars()) {
+            if (car.getBrand().equals(brand)) countCars++;
+        }
+        return countCars;
     }
 
     public void setCarUnavailable(Car car) {
