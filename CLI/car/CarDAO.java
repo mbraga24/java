@@ -1,9 +1,6 @@
 package com.havefunwith.CLI.car;
 
-/**
- * Default class only accessed within this package.
- */
-class CarDAO {
+public class CarDAO {
 
     private static Car[] cars;
     private static int nextAvailableSlot = 0;
