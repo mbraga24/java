@@ -20,7 +20,7 @@ public class CarService {
 
     /**
      * Returns all cars.
-     * @return array of cars.
+     * @return cars
      */
     public Car[] returnCars() {
         return Arrays.copyOf(carDao.getAllCars(), this.returnNumberOfTotalCars());
@@ -28,7 +28,7 @@ public class CarService {
 
     /**
      * Returns all electric cars - All cars with isElectric boolean set to true.
-     * @return array of electric cars.
+     * @return array of electric cars
      */
     public Car[] returnElectricCars() {
         int length = carDao.getAllCars().length;
@@ -46,7 +46,7 @@ public class CarService {
 
     /**
      * Returns total number of cars.
-     * @return integer.
+     * @return int
      */
     public int returnNumberOfTotalCars() {
         int totalCars = 0;
@@ -58,8 +58,8 @@ public class CarService {
 
     /**
      * Return car by registration number.
-     * @param regNumber to search car.
-     * @return car.
+     * @param regNumber
+     * @return Car
      */
     public Car returnCarByRegNumber(String regNumber) {
         for (Car car : carDao.getAllCars()) {
@@ -73,7 +73,7 @@ public class CarService {
 
     /**
      * Return all available cars.
-     * @param brand to search cars.
+     * @param brand
      * @return Cars
      */
     public Car[] returnAvailableCarsByBrand(Enum brand) {
@@ -89,6 +89,11 @@ public class CarService {
         return Arrays.copyOf(carsByBrand, index);
     }
 
+    /**
+     * Count cars to create arrays based on the number of cars of that brand.
+     * @param brand
+     * @return int
+     */
     private int countCarsByBrand(Enum brand) {
         int countCars = 0;
         for (Car car : carDao.getAllCars()) {
