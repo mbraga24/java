@@ -15,7 +15,7 @@ import java.util.Arrays;
  * Notes when done:
  *
  * 1) Fix BigDecimal: 89.00 instead of 89.0
- * 2) Add Default Access Modifier where is needed
+ * 2) Add prompts
  */
 public class Main {
 
