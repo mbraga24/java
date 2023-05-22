@@ -16,7 +16,6 @@ import java.util.Arrays;
  *
  * 1) Fix BigDecimal: 89.00 instead of 89.0
  * 2) Add Default Access Modifier where is needed
- * 3) Change returnUser to return the proper array from their service classes
  */
 public class Main {
 
