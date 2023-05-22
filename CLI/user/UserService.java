@@ -1,5 +1,7 @@
 package com.havefunwith.CLI.user;
 
+import java.util.Arrays;
+
 public class UserService {
 
     private UserDAO userDao;
@@ -10,7 +12,7 @@ public class UserService {
 
     /**
      * Creates user.
-     * @param user to be saved.
+     * @param user
      */
     public void createUser(User user) {
         userDao.saveUser(user);
@@ -18,15 +20,15 @@ public class UserService {
 
     /**
      * Return all users.
-     * @return array of users.
+     * @return users
      */
     public User[] returnUsers() {
-        return userDao.getAllUsers();
+        return Arrays.copyOf(userDao.getAllUsers(), this.returnNumberOfTotalUsers());
     }
 
     /**
      * Returns total number of users.
-     * @return integer.
+     * @return int
      */
     public int returnNumberOfTotalUsers() {
         int totalUsers = 0;

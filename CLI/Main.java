@@ -73,15 +73,11 @@ public class Main {
 
         System.out.println("\n");
         System.out.println("============== Users ==============");
-        System.out.println(Arrays.toString(
-                            Arrays.copyOf(userService.returnUsers(),
-                                    userService.returnNumberOfTotalUsers())));
+        System.out.println(Arrays.toString(userService.returnUsers()));
 
         System.out.println("\n");
         System.out.println("============== Car Bookings ==============");
-        System.out.println(Arrays.toString(
-                            Arrays.copyOf(carBookingService.returnCarBookings(),
-                                        carBookingService.returnNumberOfTotalCarBookings())));
+        System.out.println(Arrays.toString(carBookingService.returnCarBookings()));
         System.out.println("CAR BOOKING BY USER ID -- (456): " + carBookingService.returnCarBookingByUserId("456"));
         System.out.println("CAR BOOKING BY BOOKING ID -- (1001): " + carBookingService.returnCarBookingByBookingId("1001"));
     }
