@@ -1,17 +1,27 @@
 package com.havefunwith.CLI.actions;
 
+import com.havefunwith.CLI.booking.CarBookingService;
+import com.havefunwith.CLI.car.CarService;
 import com.havefunwith.CLI.user.UserService;
 import com.havefunwith.CLI.utils.Utils;
 
-import java.security.spec.RSAOtherPrimeInfo;
-import java.util.Arrays;
+import java.util.Scanner;
 
 public class Actions {
 
-    private UserService userService;
+    private static String userInput = "";
+    private static UserService userService;
+    private static CarService carService;
+    private static CarBookingService carBookingService;
+//    private static Actions actions;
+    private static Scanner scanner;
 
     public Actions() {
         userService = new UserService();
+        carService = new CarService();
+        carBookingService = new CarBookingService();
+//        actions = new Actions();
+        scanner = new Scanner(System.in);
     }
 
     public void displayOptions() {
@@ -30,31 +40,80 @@ public class Actions {
     }
 
     public void triggerOption(String option) {
-        switch (Integer.parseInt(option)) {
-            case 1:
-                System.out.println("Book car");
+        switch (option) {
+            case "1":
+                System.out.println("Book a Car");
+                System.out.println("==========");
+                this.addUserId();
+                this.addCarRegNumber();
+                carBookingService.createCarBooking("300", "0202");
                 break;
-            case 2:
-                System.out.println("View all user booked cars");
+            case "2":
+                System.out.println("View All Booked Cars By User");
+                System.out.println("============================");
+                Utils.display(carBookingService.returnCarBookingsByUser("100"));
                 break;
-            case 3:
+            case "3":
                 System.out.println("View all bookings");
+                System.out.println("============================");
+                Utils.display(carBookingService.returnCarBookings());
                 break;
-            case 4:
+            case "4":
                 System.out.println("View available cars");
+                System.out.println("============================");
+                Utils.display(carService.returnAvailableCars());
                 break;
-            case 5:
-                System.out.println("View available electric cars");
+            case "5":
+                System.out.println("View Available Electric Cars");
+                System.out.println("============================");
+                Utils.display(carService.returnElectricCars());
                 break;
-            case 6:
+            case "6":
+                System.out.println("View All Users");
+                System.out.println("==============");
                 Utils.display(userService.returnUsers());
-//                System.out.println(Arrays.toString(userService.returnUsers()));;
                 break;
             default:
-                System.out.println("Invalid input choice.");
+                System.out.println("Exit.");
                 break;
         }
 
+    }
+
+    public String collectUserInput() {
+        int ascii = 0;
+        char character = '\0';
+        boolean isValidOption;
+        do {
+            isValidOption = true;
+            this.displayOptions();
+            System.out.println("Make a selection:");
+            userInput = scanner.nextLine();
+
+            if (userInput.length() > 1) isValidOption = false;
+            if (isValidOption != false && userInput.length() > 0) {
+                character = userInput.charAt(0);
+                ascii = (int) character;
+            }
+            if (userInput.isEmpty() || userInput.isBlank()) {
+                System.out.println();
+                System.out.println("Input cannot be blank.");
+                System.out.println("======================");
+            } else if (ascii < 49 || ascii > 55) {
+                System.out.println();
+                System.out.println("Invalid option. Please use one of the options listed below:");
+                System.out.println("===========================================================");
+            }
+        } while (userInput.isEmpty() || userInput.isBlank() || ascii < 49 || ascii > 55);
+        return userInput;
+    }
+
+    private void addUserId() {
+        System.out.println("Add user id");
+    }
+
+    private void addCarRegNumber() {
+        System.out.println("Add car registration number");
     }
 
 }
