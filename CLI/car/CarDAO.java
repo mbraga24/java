@@ -4,7 +4,7 @@ public class CarDAO {
 
     private static Car[] cars;
     private static int nextAvailableSlot = 0;
-    private static final int CAPACITY = 5;
+    private static final int CAPACITY = 10;
 
     static {
         cars = new Car[CAPACITY];
