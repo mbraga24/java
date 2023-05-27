@@ -31,17 +31,27 @@ public class CarService {
      * @return array of electric cars
      */
     public Car[] returnElectricCars() {
-        int length = carDao.getAllCars().length;
-        Car[] electricCars; // O(n)
-        electricCars = Arrays.copyOf(carDao.getAllCars(), this.returnNumberOfTotalCars()); // O(n)
-        int carCount = 0;
-        for (int i = 0; i < electricCars.length; i++) { // O(n)
-            if (electricCars[i].getIsElectric() == true) {
-                electricCars[i] = electricCars[i];
-                carCount++;
+        Car[] electricCars = new Car[this.returnNumberOfTotalCars()];
+        int index = 0;
+        for (int i = 0; i < this.returnNumberOfTotalCars(); i++) {
+            if (this.returnCars()[i].getIsElectric() == true && this.returnCars()[i].getAvailable() == true) {
+                electricCars[index] = this.returnCars()[i];
+                index++;
             }
         }
-        return Arrays.copyOf(electricCars, carCount); // O(n)
+        return Arrays.copyOf(electricCars, index); // O(n)
+    }
+
+    public Car[] returnAvailableCars() {
+        Car[] availableCars = new Car[returnCars().length];
+        int index = 0;
+        for (int i = 0; i < returnCars().length; i++) {
+            if (returnCars()[i].getAvailable() == true) {
+                availableCars[index] = returnCars()[i];
+                index++;
+            }
+        }
+        return Arrays.copyOf(availableCars, index);
     }
 
     /**
