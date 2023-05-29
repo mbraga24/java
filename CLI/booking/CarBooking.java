@@ -24,7 +24,7 @@ public class CarBooking {
         this.bookingId = String.valueOf(1000 + seq.incrementAndGet());
         this.car = car;
         this.user = user;
-        this.bookingTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy/mm/dd | HH:mm:ss a"));
+        this.bookingTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("M/dd/yyyy | HH:mm:ss a"));
     }
 
     public CarBooking() {}
