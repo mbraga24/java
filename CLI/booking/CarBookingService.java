@@ -37,21 +37,16 @@ public class CarBookingService {
     public void createCarBooking(String userId, String regNumber) {
         User user = null;
         Car car = null;
-
         for (User u : userService.returnUsers()) {
             if (u.getId().equals(userId)) user = u;
         }
-
         for (Car c : carService.returnCars()) {
             if (c.getRegNumber().equals(regNumber)) car = c;
         }
-
         CarBooking carBooking = new CarBooking(car, user);
-
         carService.setCarUnavailable(carBooking.getCar());
         carBookingDao.saveCarBooking(carBooking);
-        System.out.println(carBooking);
-        System.out.println("CAR BOOKING COMPLETED");
+        this.printBookingConfirmation(car, user, carBooking);
     }
 
     /**
@@ -114,5 +109,18 @@ public class CarBookingService {
         }
         // System.out.println("Car booking not found with the booking id " + carBooking + " :: " + e.getMessage());
         return null;
+    }
+
+    private void printBookingConfirmation(Car car, User user, CarBooking carBooking) {
+        System.out.println("=> Car: " + car.getBrand() + "\n" +
+                "--- Registration Number: " + car.getRegNumber() + ",\n" +
+                "=> User: " + user.getFirstName() + "\n" +
+                "--- User Id: " + user.getId() + "\n" +
+                "=> Booking Details: \n" +
+                "--- Day/Time: " + carBooking.getBookingTime() + "\n" +
+                "--- Booking Confirmation: " + carBooking.getBookingId() + "\n" +
+                "===============================================\n" +
+                "            SUCCESSFULLY BOOKED!\n" +
+                "===============================================");
     }
 }
