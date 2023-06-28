@@ -16,4 +16,11 @@ public class Circle implements Shape {
     public double area() {
         return Math.pow(getRadius(), 2);
     }
+
+//    INTERFACE SEGREGATION - Interfaces should not force classes to implement what they
+//    can't do.
+//    @Override
+//    public double volume() {
+//        return 0;
+//    }
 }

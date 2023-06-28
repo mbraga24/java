@@ -17,4 +17,11 @@ public class Square implements Shape {
         return Math.pow(getLength(), 2);
     }
 
+//    INTERFACE SEGREGATION - Interfaces should not force what other classes
+//    can't do.
+//    @Override
+//    public double volume() {
+//        return 0;
+//    }
+
 }

@@ -1,6 +1,6 @@
 package com.havefunwith.modules.demos.solidP;
 
-public class Cube implements Shape {
+public class Cube implements Shape, ThreeDShape {
 
     private final int length;
 
@@ -15,5 +15,10 @@ public class Cube implements Shape {
     @Override
     public double area() {
         return getLength() * getLength();
+    }
+
+    @Override
+    public double volume() {
+        return 0;
     }
 }

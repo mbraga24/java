@@ -1,9 +1,8 @@
 package com.havefunwith.modules.demos.solidP;
 
-import java.awt.*;
 import java.util.List;
 
-public class AreaCalculator implements IAreaCalculator {
+public class AreaCalculatorV2 implements IAreaCalculator {
 
     /*
      * Note:
