@@ -1,9 +1,11 @@
-package com.havefunwith.modules.demos;
+package com.havefunwith.modules.demos.datastructures;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class Queues {
+
+    // FIFO - First In First Out
 
     public static void main(String[] args) {
         Queue<Person> queue = new LinkedList<>();

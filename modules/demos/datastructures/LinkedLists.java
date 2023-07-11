@@ -1,4 +1,4 @@
-package com.havefunwith.modules.demos;
+package com.havefunwith.modules.demos.datastructures;
 
 import java.util.LinkedList;
 import java.util.ListIterator;
