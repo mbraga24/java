@@ -1,21 +1,24 @@
 package com.havefunwith.CLI.user;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserDAO {
 
     private static final int CAPACITY = 5;
-    private static User[] users;
+    private static List<User> users;
     private static int nextAvailable = 0;
 
     static {
-        users = new User[CAPACITY];
+        users = new ArrayList<>(CAPACITY);
     }
 
     /**
      * Saves user.
-     * @param user to be saved.
+     * @param user
      */
     public void saveUser(User user) {
-        users[nextAvailable] = user;
+        users.add(user);
         nextAvailable++;
     }
 
@@ -23,7 +26,7 @@ public class UserDAO {
      * Retrieve all users.
      * @return array of users.
      */
-    public User[] getAllUsers() {
+    public List<User> getAllUsers() {
         return users;
     }
 

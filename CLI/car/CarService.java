@@ -3,8 +3,8 @@ package com.havefunwith.CLI.car;
 import com.havefunwith.CLI.booking.CarBooking;
 import com.havefunwith.CLI.booking.CarBookingService;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CarService {
 
@@ -22,36 +22,32 @@ public class CarService {
      * Returns all cars.
      * @return cars
      */
-    public Car[] returnCars() {
-        return Arrays.copyOf(carDao.getAllCars(), this.returnNumberOfTotalCars());
+    public List<Car> returnCars() {
+        return carDao.getAllCars();
     }
 
     /**
      * Returns all electric cars - All cars with isElectric boolean set to true.
      * @return array of electric cars
      */
-    public Car[] returnElectricCars() {
-        Car[] electricCars = new Car[this.returnNumberOfTotalCars()];
-        int index = 0;
+    public List<Car> returnElectricCars() {
+        List<Car> electricCars = new ArrayList<Car>(this.returnNumberOfTotalCars());
         for (int i = 0; i < this.returnNumberOfTotalCars(); i++) {
-            if (this.returnCars()[i].getIsElectric() == true && this.returnCars()[i].getAvailable() == true) {
-                electricCars[index] = this.returnCars()[i];
-                index++;
+            if (this.returnCars().get(i).getIsElectric() == true && this.returnCars().get(i).getAvailable() == true) {
+                electricCars.add(this.returnCars().get(i));
             }
         }
-        return Arrays.copyOf(electricCars, index); // O(n)
+        return electricCars; // O(n)
     }
 
-    public Car[] returnAvailableCars() {
-        Car[] availableCars = new Car[returnCars().length];
-        int index = 0;
-        for (int i = 0; i < returnCars().length; i++) {
-            if (returnCars()[i].getAvailable() == true) {
-                availableCars[index] = returnCars()[i];
-                index++;
+    public List<Car> returnAvailableCars() {
+        List<Car> availableCars = new ArrayList<>(returnCars().size());
+        for (int i = 0; i < returnCars().size(); i++) {
+            if (returnCars().get(i).getAvailable() == true) {
+                availableCars.add(returnCars().get(i));
             }
         }
-        return Arrays.copyOf(availableCars, index);
+        return availableCars;
     }
 
     /**
@@ -86,17 +82,15 @@ public class CarService {
      * @param brand
      * @return Cars
      */
-    public Car[] returnAvailableCarsByBrand(Enum brand) {
+    public List<Car> returnAvailableCarsByBrand(Enum brand) {
         int countCars = countCarsByBrand(brand);
-        Car[] carsByBrand = new Car[countCars];
-        int index = 0;
+        List<Car> carsByBrand = new ArrayList<>();
         for (int i = 0; i < countCars; i++) {
-            if (carDao.getAllCars()[i].getBrand().equals(brand) && carDao.getAllCars()[i].getAvailable() == true) {
-                carsByBrand[index] = carDao.getAllCars()[i];
-                index++;
+            if (carDao.getAllCars().get(i).getBrand().equals(brand) && carDao.getAllCars().get(i).getAvailable() == true) {
+                carsByBrand.add(carDao.getAllCars().get(i));
             }
         }
-        return Arrays.copyOf(carsByBrand, index);
+        return carsByBrand;
     }
 
     /**

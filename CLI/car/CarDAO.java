@@ -1,13 +1,16 @@
 package com.havefunwith.CLI.car;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CarDAO {
 
-    private static Car[] cars;
+    private static List<Car> cars;
     private static int nextAvailableSlot = 0;
     private static final int CAPACITY = 10;
 
     static {
-        cars = new Car[CAPACITY];
+        cars = new ArrayList<>(CAPACITY);
     }
 
     /**
@@ -15,7 +18,7 @@ public class CarDAO {
      * @param car to be saved.
      */
     public void saveCar(Car car) {
-        cars[nextAvailableSlot] = car;
+        cars.add(car);
         nextAvailableSlot++;
     }
 
@@ -23,7 +26,7 @@ public class CarDAO {
      * Retrieve all cars.
      * @return array of cars.
      */
-    public Car[] getAllCars() {
+    public List<Car> getAllCars() {
         return cars;
     }
 }

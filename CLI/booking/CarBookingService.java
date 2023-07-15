@@ -5,7 +5,9 @@ import com.havefunwith.CLI.car.CarService;
 import com.havefunwith.CLI.user.User;
 import com.havefunwith.CLI.user.UserService;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class CarBookingService {
 
@@ -32,7 +34,8 @@ public class CarBookingService {
 
     /**
      * Create car booking from CLI.
-     * @param carBooking
+     * @param userId
+     * @param regNumber
      */
     public void createCarBooking(String userId, String regNumber) {
         User user = null;
@@ -53,20 +56,19 @@ public class CarBookingService {
      * Returns all car bookings.
      * @return CarBooking[]
      */
-    public CarBooking[] returnCarBookings() {
-        return Arrays.copyOf(carBookingDao.getAllCarBookings(), this.returnNumberOfTotalCarBookings());
+    public List<CarBooking> returnCarBookings() {
+//        return Arrays.copyOf(carBookingDao.getAllCarBookings(), this.returnNumberOfTotalCarBookings());
+        return carBookingDao.getAllCarBookings();
     }
 
-    public CarBooking[] returnCarBookingsByUser(String userId) {
-        CarBooking[] bookingsByUser = new CarBooking[this.returnNumberOfTotalCarBookings()];
-        int index = 0;
+    public List<CarBooking> returnCarBookingsByUser(String userId) {
+        List<CarBooking> bookingsByUser = new ArrayList<>(this.returnNumberOfTotalCarBookings());
         for (int i = 0; i < this.returnNumberOfTotalCarBookings(); i++) {
-            if (this.returnCarBookings()[i].getUser().getId().equals(userId)) {
-                bookingsByUser[index] = this.returnCarBookings()[i];
-                index++;
+            if (this.returnCarBookings().get(i).getUser().getId().equals(userId)) {
+                bookingsByUser.add(this.returnCarBookings().get(i));
             }
         }
-        return Arrays.copyOf(bookingsByUser, index);
+        return bookingsByUser;
     }
 
     /**

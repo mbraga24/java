@@ -1,5 +1,7 @@
 package com.havefunwith.CLI.utils;
 
+import java.util.List;
+
 public class Utils {
 
     /**
@@ -7,10 +9,15 @@ public class Utils {
      * @param array
      * @param <T>
      */
-    public static <T> void display(T[] array) {
-        for (T item : array) {
+//    public static <T> void display(T[] array) {
+//        for (T item : array) {
+//            System.out.println(item.toString());
+//        }
+//    }
+    public static <T> void display(List<T> aList) {
+        aList.forEach(item -> {
             System.out.println(item.toString());
-        }
+        });
     }
 
     /**
