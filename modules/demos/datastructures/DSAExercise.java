@@ -17,10 +17,10 @@ public class DSA {
         System.out.println("==========================");
 
         String[] numberList = {"1", "1", "1", "1", "3", "4", "5", "6", "7", "7", "7", "8", "8"};
-        Map<String, Integer> occurrences = numberOfOccurrences(numberList);
-        occurrences.entrySet().forEach(item -> {
-            System.out.println(item.getKey()+ ": " + item.getValue());
-        });
+//        Map<String, Integer> occurrences = numberOfOccurrences(numberList);
+//        occurrences.entrySet().forEach(item -> {
+//            System.out.println(item.getKey()+ ": " + item.getValue());
+//        });
 
         /*
             Exercise 2
@@ -31,7 +31,18 @@ public class DSA {
         System.out.println("Number of Most Occurrences");
         System.out.println("==========================");
 
-        System.out.println(mostNumberOfOccurrences(numberList));
+//        System.out.println(mostNumberOfOccurrences(numberList));
+
+        /*
+            Exercise 3
+            Parenthesis Checker
+         */
+        System.out.println("==========================");
+        System.out.println("Exercise 3");
+        System.out.println("Parenthesis Checker");
+        System.out.println("==========================");
+        String brackets = "[{{}}]";
+        isBalanced(brackets);
     }
 
     /**
@@ -101,6 +112,69 @@ public class DSA {
             }
         });
         return keyMaster.get() + ": " + occurrence.get();
+    }
+
+    /**
+     * Exercise 3
+     * Parenthesis Checker Given the following inputs
+     *
+     * String brackets = "[{{[(){}]}}[]{}{{(())}}]";
+     * String brackets = "[{{}}[]{}{{(())}}]";
+     * String brackets = "[{}{}{{()}}]";
+     * String brackets = "[{}{{}}]";
+     * String brackets = "[{{}}]";
+     * String brackets = "[{}]";
+     * String brackets = "";
+     *
+     * Check if the following parenthesis are balanced. i.e
+     *
+     * [] - true
+     * [[] - false
+     * ({[]}) - true
+     * ({[}) - false
+     *
+     * for each corresponding opening bracket there is a closing bracket
+     *
+     * Think about which data structure you should use, implement the following
+     * method and write unit tests
+     *
+     * public boolean isBalanced(String input) {
+     *     return false;
+     * }
+     */
+
+    private static boolean isBalanced(String input) {
+        // O(n) Time
+        // Create an array of all the brackets to be looped through.
+        String[] brackets = input.split("");
+        String[] asciiCodes = {"123", "125", "40", "41", "91", "93"};
+        Map<String, Integer> pairBrackets = new HashMap<>();
+        boolean isValid = true;
+
+        // O(n) Time
+        // Collect all bracket keys and count its occurrence.
+        for (String brckt : brackets) {
+            if (!pairBrackets.containsKey(brckt)) {
+                pairBrackets.put(brckt, 1);
+            } else {
+                int value = pairBrackets.get(brckt);
+                value++;
+                pairBrackets.put(brckt, value);
+            }
+        }
+
+        // O(n) Time
+        // Check for any odd values.
+        pairBrackets.forEach((key, value) -> {
+            System.out.println(value);
+//            if (value % 2 != 0) {
+//                isValid = false;
+//                break;
+//            }
+        });
+
+//        System.out.println(Arrays.toString(brackets));
+        return isValid;
     }
 
 }
