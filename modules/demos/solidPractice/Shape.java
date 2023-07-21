@@ -1,4 +1,4 @@
-package com.havefunwith.modules.demos.solidP;
+package com.havefunwith.modules.demos.solidPractice;
 
 public interface Shape {
 

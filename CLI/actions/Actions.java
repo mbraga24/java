@@ -62,18 +62,18 @@ public class Actions {
                 Utils.printMessage("View all bookings");
                 Utils.display(carBookingService.returnCarBookings());
                 break;
-//            case "4":
-//                Utils.printMessage("View available cars");
-//                Utils.display(carService.returnAvailableCars());
-//                break;
-//            case "5":
-//                Utils.printMessage("View Available Electric Cars");
-//                Utils.display(carService.returnElectricCars());
-//                break;
-//            case "6":
-//                Utils.printMessage("View All Users");
-//                Utils.display(userService.returnUsers());
-//                break;
+            case "4":
+                Utils.printMessage("View available cars");
+                Utils.display(carService.returnAvailableCars());
+                break;
+            case "5":
+                Utils.printMessage("View Available Electric Cars");
+                Utils.display(carService.returnElectricCars());
+                break;
+            case "6":
+                Utils.printMessage("View All Users");
+                Utils.display(userService.returnUsers());
+                break;
             default:
                 System.out.println("Exit.");
                 break;

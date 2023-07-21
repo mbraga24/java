@@ -1,4 +1,4 @@
-package com.havefunwith.modules.demos.solidP;
+package com.havefunwith.modules.demos.solidPractice;
 
 import java.util.List;
 

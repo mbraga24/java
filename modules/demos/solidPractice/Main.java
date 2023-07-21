@@ -1,6 +1,5 @@
-package com.havefunwith.modules.demos.solidP;
+package com.havefunwith.modules.demos.solidPractice;
 
-import java.awt.*;
 import java.util.List;
 
 public class Main {

@@ -1,4 +1,4 @@
-package com.havefunwith.modules;
+package com.havefunwith.modules.basics;
 
 import javax.sound.midi.Soundbank;
 import java.io.File;

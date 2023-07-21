@@ -1,4 +1,4 @@
-package com.havefunwith.modules;
+package com.havefunwith.modules.basics;
 
 import static java.lang.Integer.parseInt;
 

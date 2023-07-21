@@ -1,4 +1,4 @@
-package com.havefunwith.modules;
+package com.havefunwith.modules.basics;
 
 public class ArraysConditionalMethods {
     public static void main(String[] args) {
