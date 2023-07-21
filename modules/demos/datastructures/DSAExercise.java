@@ -1,10 +1,8 @@
 package com.havefunwith.modules.demos.datastructures;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicReference;
 
-public class DSA {
+public class DSAExercise {
 
     public static void main(String[] args) {
         /*
@@ -16,11 +14,11 @@ public class DSA {
         System.out.println("Number of Occurrences");
         System.out.println("==========================");
 
-        String[] numberList = {"1", "1", "1", "1", "3", "4", "5", "6", "7", "7", "7", "8", "8"};
-//        Map<String, Integer> occurrences = numberOfOccurrences(numberList);
-//        occurrences.entrySet().forEach(item -> {
-//            System.out.println(item.getKey()+ ": " + item.getValue());
-//        });
+        String[] numberList = {"1", "2", "1", "1", "3", "4", "5", "6", "7", "7", "7", "8", "8"};
+        Map<String, Integer> occurrences = numberOfOccurrences(numberList);
+        for (String element : occurrences.keySet()) {
+            System.out.println(element + ": " + occurrences.get(element));
+        }
 
         /*
             Exercise 2
@@ -31,7 +29,7 @@ public class DSA {
         System.out.println("Number of Most Occurrences");
         System.out.println("==========================");
 
-//        System.out.println(mostNumberOfOccurrences(numberList));
+        System.out.println(mostNumberOfOccurrences(numberList));
 
         /*
             Exercise 3
@@ -41,8 +39,38 @@ public class DSA {
         System.out.println("Exercise 3");
         System.out.println("Parenthesis Checker");
         System.out.println("==========================");
-        String brackets = "[{{}}]";
-        isBalanced(brackets);
+        System.out.println("==========================");
+        System.out.println("Exercise 3");
+        System.out.println("Parenthesis Checker");
+        System.out.println("==========================");
+        String testBkt1 = "[]"; // true
+        String testBkt2 = "[[]"; // false
+        String testBkt3 = "[{[]}]"; // true
+        String testBkt4 = "[{[}]"; // false
+        String testBkt5 = "[{{[(){}]}}[]{}{{(())}}]"; // true
+        String testBkt6 = "[{{[(){}]}}[]}{{(())}}]"; // false
+        String testBkt7 = "[{{}}[]{}{{(())}}]"; // true
+        String testBkt8 = "[{}{}{{()}}]"; // true
+        String testBkt9 = "[{}{{}}]"; // true
+        String testBkt10 = "[{{}}]"; // true
+        String testBkt11 = "[{}]"; // true
+        String testBkt12 = "[{})]"; // false
+        String testBkt13 = ""; // true
+
+        System.out.println("testBkt1: " + isBalanced(testBkt1));
+        System.out.println("testBkt2: " + isBalanced(testBkt2));
+        System.out.println("testBkt3: " + isBalanced(testBkt3));
+        System.out.println("testBkt4: " + isBalanced(testBkt4));
+        System.out.println("=================================");
+        System.out.println("testBkt5: " + isBalanced(testBkt5));
+        System.out.println("testBkt6: " + isBalanced(testBkt6));
+        System.out.println("testBkt7: " + isBalanced(testBkt7));
+        System.out.println("testBkt8: " + isBalanced(testBkt8));
+        System.out.println("testBkt9: " + isBalanced(testBkt9));
+        System.out.println("testBkt10: " + isBalanced(testBkt10));
+        System.out.println("testBkt11: " + isBalanced(testBkt11));
+        System.out.println("testBkt12: " + isBalanced(testBkt12));
+        System.out.println("testBkt13: " + isBalanced(testBkt13));
     }
 
     /**
@@ -72,17 +100,11 @@ public class DSA {
      *
      */
     private static Map<String, Integer> numberOfOccurrences(String[] input) {
-        Map<String, Integer> occurrences = new HashMap<>();
-        for (String num : input) { // loop through the array -- O(a)
-            if (!occurrences.containsKey(num)) { // check if item is already a key
-                occurrences.put(String.valueOf(num), 1); // if not a key, add item as a key with the initial value of 1
-                continue; // break out of this current iteration
+            Map<String, Integer> occurrencesMap = new HashMap<>();
+            for (String element : input) {
+                occurrencesMap.put(element, occurrencesMap.getOrDefault(element, 0) + 1);
             }
-            int value = occurrences.get(num); // if item is already a key, get the value for that key
-            value++; // increase the value of that key by 1
-            occurrences.put(String.valueOf(num), value); // reassign the value for that key
-        }
-        return occurrences;
+            return occurrencesMap;
     }
 
     /**
@@ -103,15 +125,16 @@ public class DSA {
     private static String mostNumberOfOccurrences(String[] input) {
         Map<String, Integer> numberOfOccurrences = numberOfOccurrences(input); // O(a)
 
-        AtomicInteger occurrence = new AtomicInteger();
-        AtomicReference<String> keyMaster = new AtomicReference<String>();
-        numberOfOccurrences.forEach((key, value) -> { // O(b)
-            if (occurrence.get() < value) {
-                occurrence.set(value);
-                keyMaster.set(key);
+        int mostOccurrences = 0;
+        String result = "";
+        for (String num : numberOfOccurrences.keySet()) { // O(b)
+            int count = numberOfOccurrences.get(num);
+            if (count > mostOccurrences) {
+                mostOccurrences = count;
+                result = num;
             }
-        });
-        return keyMaster.get() + ": " + occurrence.get();
+        }
+        return result;
     }
 
     /**
@@ -142,39 +165,31 @@ public class DSA {
      *     return false;
      * }
      */
-
     private static boolean isBalanced(String input) {
-        // O(n) Time
-        // Create an array of all the brackets to be looped through.
-        String[] brackets = input.split("");
-        String[] asciiCodes = {"123", "125", "40", "41", "91", "93"};
-        Map<String, Integer> pairBrackets = new HashMap<>();
-        boolean isValid = true;
-
-        // O(n) Time
-        // Collect all bracket keys and count its occurrence.
-        for (String brckt : brackets) {
-            if (!pairBrackets.containsKey(brckt)) {
-                pairBrackets.put(brckt, 1);
-            } else {
-                int value = pairBrackets.get(brckt);
-                value++;
-                pairBrackets.put(brckt, value);
-            }
+        // declare and initialize a Stack DS of Characters
+        Stack<Character> stackBracket = new Stack<>();
+        char[] charArray = input.toCharArray();
+        if (charArray.length == 0) {
+            return false;
         }
 
-        // O(n) Time
-        // Check for any odd values.
-        pairBrackets.forEach((key, value) -> {
-            System.out.println(value);
-//            if (value % 2 != 0) {
-//                isValid = false;
-//                break;
-//            }
-        });
-
-//        System.out.println(Arrays.toString(brackets));
-        return isValid;
+        // loop through the given input by accessing each Character of the string
+        for (char bracket : charArray) {
+            if (bracket == '(' || bracket == '[' || bracket == '{') {
+                stackBracket.push(bracket);
+            } else {
+                if (stackBracket.isEmpty()) {
+                    return false;
+                }
+                char pop = stackBracket.pop();
+                if (bracket == '(' && pop != ')' ||
+                    bracket == '[' && pop != ']' ||
+                    bracket == '{' && pop != '}') {
+                    return false;
+                }
+            }
+        }
+        return stackBracket.isEmpty();
     }
 
 }
