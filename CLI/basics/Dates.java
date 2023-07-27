@@ -1,4 +1,4 @@
-package com.havefunwith.modules.basics;
+package com.havefunwith.CLI.basics;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

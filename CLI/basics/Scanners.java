@@ -1,4 +1,4 @@
-package com.havefunwith.modules.basics;
+package com.havefunwith.CLI.basics;
 
 import java.util.Locale;
 import java.util.Scanner;
